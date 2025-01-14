@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Digital Clock</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #acb6e5);
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        #clock-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding: 20px 30px;
+            width: 350px;
+        }
+        
+        #clock {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        #date {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: #555;
+        }
+        
+        footer {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        .back-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007acc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .back-button:hover {
+            background-color: #005a9d;
+        }
+    </style>
+</head>
+<body>
+    <div id="clock-container">
+        <div id="clock">00:00:00</div>
+        <div id="date">January 1, 2025</div>
+        <footer>&copy; 2025 MD. ZAAYED</footer>
+        <button class="back-button" onclick="location.href='index.html'">Back to Portfolio</button>
+    </div>
+    <script>
+        function updateClock() {
+            const clock = document.getElementById('clock');
+            const date = document.getElementById('date');
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            clock.textContent = `${hours}:${minutes}:${seconds}`;
+            const options = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            };
+            date.textContent = now.toLocaleDateString('en-US', options);
+        }
+        setInterval(updateClock, 1000);
+        updateClock(); // Call initially to display clock immediately
+    </script>
+</body>
+</html>

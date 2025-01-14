@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic News Page</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+background: linear-gradient(135deg, #f9f9f9, #e0e0e0);
+display: flex;
+align-items: center;
+justify-content: center;
+height: 100vh;
+color: #333;
+}
+
+    .news-container {
+        background: white;
+        border-radius: 10px;
+        padding: 20px 30px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        width: 500px;
+        text-align: center;
+    }
+    
+    .news-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #007acc;
+    }
+    
+    .news-content {
+        font-size: 18px;
+        line-height: 1.6;
+    }
+    
+    footer {
+        margin-top: 20px;
+        font-size: 0.9rem;
+        color: #777;
+    }
+</style>
+
+</head>
+<body>
+<div class="news-container">
+<div class="news-title">Latest News</div>
+<div id="news-content" class="news-content">Loading news...</div>
+<footer>
+<p>&copy; 2025 MD. ZAAYED</p>
+<p><a href="index.html">Back to Portfolio</a></p>
+</footer>
+</div>
+<script>
+const newsHeadlines = [
+"Artificial Intelligence is transforming industries worldwide.",
+"New breakthrough in AI helps improve healthcare diagnostics.",
+"Tech giants invest billions in AI research and development.",
+"AI-powered tools revolutionize online learning.",
+"Self-driving cars become more efficient with advanced AI algorithms.",
+"Scientists explore AI's potential in climate change solutions.",
+"AI-generated art gains popularity among digital creators.",
+"Major advancements in natural language processing this year.",
+"AI systems now achieve near-human accuracy in speech recognition.",
+"Researchers discover new ways to enhance AI explainability."
+];
+
+    function updateNews() {
+        const newsContent = document.getElementById('news-content');
+        const randomIndex = Math.floor(Math.random() * newsHeadlines.length);
+        newsContent.textContent = newsHeadlines[randomIndex];
+    }
+    
+    // Update news every minute (60,000 ms)
+    setInterval(updateNews, 60000);
+    updateNews(); // Call immediately to display the first headline
+</script>
+
+</body>
+</html>
